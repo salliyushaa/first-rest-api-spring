@@ -1,6 +1,6 @@
 # First Rest Api Spring Project
 
-**Student:** Saliya Komilova 73399 **University:** Vistula University **Subject:** Spring Framework
+**Student:** Saliya Komilova 73399 
 
 ## What I did in this project:
 
