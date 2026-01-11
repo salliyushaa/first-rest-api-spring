@@ -34,7 +34,7 @@ For this assignment, I developed a functional REST API for managing a product ca
 
 ### 1. Interactive Documentation (Swagger UI)
 Automated API overview and testing interface.
-![Swagger UI](screenshots/Swagger%20UI.png)
+![Swagger UI](screenshots/SWAGGER_UI.png)
 
 ### 2. Creating a Product (POST Request)
 Demonstration of successful resource creation with a **201 Created** status.
@@ -46,8 +46,8 @@ Fetching the list of products currently stored in the application.
 
 ### 4. H2 Database Verification
 Direct view of the `PRODUCTS` table in the H2 console, verifying data persistence.
-![H2 Console](screenshots/H2%20Console.png)
+![H2 Console](screenshots/H2_Console.png)
 
 ### 5. Custom Exception Handling (404 Not Found)
 System response returning a custom error message when a product is not found.
-![404 Error](screenshots/404%20Not%20Found.png)
+![404 Error](screenshots/404_Not_Found.png)
