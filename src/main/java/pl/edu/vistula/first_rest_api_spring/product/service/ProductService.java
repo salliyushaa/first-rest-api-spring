@@ -2,9 +2,11 @@ package pl.edu.vistula.first_rest_api_spring.product.service;
 
 import org.springframework.stereotype.Service;
 import pl.edu.vistula.first_rest_api_spring.product.api.request.ProductRequest;
+import pl.edu.vistula.first_rest_api_spring.product.api.request.UpdateProductRequest;
 import pl.edu.vistula.first_rest_api_spring.product.api.response.ProductResponse;
 import pl.edu.vistula.first_rest_api_spring.product.domain.Product;
 import pl.edu.vistula.first_rest_api_spring.product.repository.ProductRepository;
+import pl.edu.vistula.first_rest_api_spring.product.support.ProductExceptionSupplier;
 import pl.edu.vistula.first_rest_api_spring.product.support.ProductMapper;
 import pl.edu.vistula.first_rest_api_spring.product.support.exception.ProductNotFoundException;
 
@@ -23,6 +25,14 @@ public class ProductService {
 
     public ProductResponse create(ProductRequest request) {
         Product product = repository.save(mapper.toProduct(request));
+        return mapper.toProductResponse(product);
+    }
+
+    public ProductResponse update(Long id, UpdateProductRequest updateProductRequest) {
+        Product product = repository.findById(id)
+                .orElseThrow(ProductExceptionSupplier.productNotFound(id));
+        repository.save(mapper.toProduct(product, updateProductRequest));
+
         return mapper.toProductResponse(product);
     }
 

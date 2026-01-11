@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.vistula.first_rest_api_spring.product.api.request.ProductRequest;
+import pl.edu.vistula.first_rest_api_spring.product.api.request.UpdateProductRequest;
 import pl.edu.vistula.first_rest_api_spring.product.api.response.ProductResponse;
 import pl.edu.vistula.first_rest_api_spring.product.service.ProductService;
 
@@ -33,6 +34,14 @@ public class ProductController {
     @Operation(summary = "Find all products")
     public ResponseEntity<List<ProductResponse>> findAll() {
         return ResponseEntity.ok(service.findAll());
+    }
+
+    @PutMapping("/{id}")
+    @Operation(summary = "Update product") // Описание для Swagger [cite: 1161]
+    public ResponseEntity<ProductResponse> update(@PathVariable Long id, @RequestBody UpdateProductRequest updateProductRequest) {
+        // Вызов сервиса и возврат статуса OK (200) [cite: 1162, 1166]
+        ProductResponse productResponse = service.update(id, updateProductRequest);
+        return ResponseEntity.status(HttpStatus.OK).body(productResponse);
     }
 
     @DeleteMapping("/{id}")

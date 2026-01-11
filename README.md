@@ -1,28 +1,32 @@
 # First Rest Api Spring Project
 
-**Student:** Saliya Komilova 73399 **University:** Vistula University **Subject:** Spring Framework
+**Student:** Saliya Komilova 73399 
 
-## What I did in this project:
+## Project Overview
+For this assignment, I developed a functional REST API for managing a product catalog. This is my second project using Spring Boot, where I applied a layered architecture and worked with database persistence. My main goal was to implement all CRUD operations and set up proper error handling.
 
-1. **RESTful API Development**: Created a fully functional API using Spring Boot to manage a product catalog.
-2. **Layered Architecture**: Implemented a professional structure including Controller, Service, Repository, and Domain layers[cite: 358, 381].
-3. **CRUD Functionality**: Added support for Create, Read (single & all), and Delete operations[cite: 825, 843, 1327, 1393].
-4. **Data Persistence**: Integrated an in-memory **H2 Database** using Spring Data JPA [cite: 1441-1443].
-5. **Exception Handling**: Developed a global handler using `@ControllerAdvice` to return custom 404 error messages via `ProductNotFoundException` [cite: 1043, 1079-1081].
-6. **Documentation**: Configured **Swagger UI** and **OpenAPI** for automated API documentation and interactive testing [cite: 721-723].
+## What I implemented in this work:
+
+* **Layered Architecture**: I organized the code into clear layers: Controllers, Services, Repositories, and Domain models. This helps keep the code clean and manageable.
+* **Full CRUD Operations**: I added the ability to Create, Read, Delete, and **Update (PUT)** products.
+* **Database Integration (H2)**: I connected an in-memory H2 database. All products are saved into a real table using Spring Data JPA.
+* **Exception Handling**: I configured a `@ControllerAdvice` so that instead of standard error pages, the server returns a clear JSON response (e.g., if a product ID is not found, it returns a 404 error).
+* **Swagger Documentation**: I integrated Swagger UI. This is very convenient because you can test the API methods directly in the browser.
 
 ---
 
-## How to test the app:
+## How to run and test:
 
-1. **Run the project**: Open in IntelliJ IDEA and run `FirstRestApiSpringApplication.java`[cite: 114, 754].
-2. **Swagger UI**: Access `http://localhost:8080/swagger-ui/index.html` to interact with endpoints[cite: 768].
-3. **H2 Database Console**: Access `http://localhost:8080/console` with JDBC URL: `jdbc:h2:mem:testdb`[cite: 1459, 1485].
-4. **Endpoints**:
-    - `POST /api/v1/products`: Create a product.
-    - `GET /api/v1/products`: List all products.
-    - `GET /api/v1/products/{id}`: Find by ID.
-    - `DELETE /api/v1/products/{id}`: Remove a product.
+1.  **Run the project**: Open in IntelliJ IDEA and run `FirstRestApiSpringApplication.java`.
+2.  **Test via Swagger**: Access `http://localhost:8080/swagger-ui/index.html` to interact with endpoints.
+3.  **H2 Database Console**: Access the database at `http://localhost:8080/console` (use JDBC URL: `jdbc:h2:mem:testdb`).
+
+### Available Endpoints:
+* `POST /api/v1/products` — Create a new product (returns 201 Created).
+* `GET /api/v1/products` — View the list of all products.
+* `GET /api/v1/products/{id}` — Find a product by its ID.
+* `PUT /api/v1/products/{id}` — Update an existing product.
+* `DELETE /api/v1/products/{id}` — Remove a product from the database (Status 204).
 
 ---
 
